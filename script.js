@@ -4,6 +4,7 @@ document.addEventListener('DOMContentLoaded', function () {
     array_print_btn.addEventListener("click", function (e) {
         const array_count = document.getElementById("array-count");
         _array = [];
+        document.getElementById("result").innerHTML = "Kết quả mảng : ";
         for (var i = 0; i < array_count.value; i++) {
             var _input = prompt("NHập phần tử thứ : " + i);
             if (!_input) {
@@ -29,7 +30,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const sort_a_btn = document.getElementById("sort-a");
     sort_a_btn.addEventListener("click", function (e) {
         _array.sort((a, b) => a - b);
-        document.getElementById("result").innerHTML = "";
+        document.getElementById("result").innerHTML = "Kết quả mảng : ";
         const sort_b_btn = document.getElementById("sort-b");
         _array.forEach((val) => {
             document.getElementById("result").innerHTML += val.toString().concat(" ");
@@ -40,7 +41,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const sort_b_btn = document.getElementById("sort-b");
     sort_b_btn.addEventListener("click", function (e) {
         _array.sort((a, b) => b - a);
-        document.getElementById("result").innerHTML = "";
+        document.getElementById("result").innerHTML = "Kết quả mảng : ";
         const sort_b_btn = document.getElementById("sort-b");
         _array.forEach((val) => {
             document.getElementById("result").innerHTML += val.toString().concat(" ");
@@ -51,7 +52,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const insert_btn = document.getElementById("insert-btn");
     insert_btn.addEventListener("click", function (e) {
         _array.splice(document.getElementById("insert-pos").value, 0, document.getElementById("insert-val").value);
-        document.getElementById("result").innerHTML = "";
+        document.getElementById("result").innerHTML = "Kết quả mảng : ";
         _array.forEach((val) => {
             document.getElementById("result").innerHTML += val.toString().concat(" ");
         });
