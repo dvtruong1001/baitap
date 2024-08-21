@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BAI TAP THAO TAC MANG</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+    <div class="container">
+        <h1>Bài tập thao tác mạng</h1>
+        Nhập số phần tử : <input type="number" id="array-count" placeholder="Nhập số phần tử">
+        <button id="array-print">Phát sinh mạng</button>
+        <div id="result"></div>
+        Nhập giá trị cần tìm : <input type="number" id="search-val"><button id="search-btn">Tìm kiếm</button>
+        <div id="result-search"></div>
+        Sắp xếp mảng <button id="sort-a">Tăng giần</button> <button id="sort-b">Giảm giần</button>
+        <br>
+        Chèn giá trị <input type="number" id="insert-val"> vào vị trí thứ <input type="number" id="insert-pos"> <button
+            id="insert-btn">Chèn</button>
+    </div>
+
+
+    <script>
+        var _array = [];
+        document.addEventListener('DOMContentLoaded', function () {
+            const array_print_btn = document.getElementById("array-print");
+            array_print_btn.addEventListener("click", function (e) {
+                const array_count = document.getElementById("array-count");
+                _array = [];
+                for (var i = 0; i < array_count.value; i++) {
+                    var _input = prompt("NHập phần tử thứ : " + i);
+                    if (!_input) {
+                        alert("Số không hợp lệ");
+                        break;
+                    }
+
+                    _array.push(_input);
+                    document.getElementById("result").innerHTML += _input.toString().concat(" ");
+
+                }
+            });
+
+            const search_btn = document.getElementById("search-btn");
+            search_btn.addEventListener("click", function (e) {
+                const search_pos = _array.indexOf(document.getElementById("search-val").value);
+                if (search_pos >= 0) {
+                    document.getElementById("result-search").innerHTML = "Giá trị " + document.getElementById("search-val").value + " xuất hiện tại vị trí thứ : " + search_pos.toString();
+                }
+            });
+
+
+            const sort_a_btn = document.getElementById("sort-a");
+            sort_a_btn.addEventListener("click", function (e) {
+                _array.sort((a, b) => a - b);
+                document.getElementById("result").innerHTML = "";
+                const sort_b_btn = document.getElementById("sort-b");
+                _array.forEach((val) => {
+                    document.getElementById("result").innerHTML += val.toString().concat(" ");
+                });
+            });
+
+
+            const sort_b_btn = document.getElementById("sort-b");
+            sort_b_btn.addEventListener("click", function (e) {
+                _array.sort((a, b) => b - a);
+                document.getElementById("result").innerHTML = "";
+                const sort_b_btn = document.getElementById("sort-b");
+                _array.forEach((val) => {
+                    document.getElementById("result").innerHTML += val.toString().concat(" ");
+                });
+            });
+
+
+            const insert_btn = document.getElementById("insert-btn");
+            insert_btn.addEventListener("click", function (e) {
+                _array.splice(document.getElementById("insert-pos").value, 0, document.getElementById("insert-val").value);
+                document.getElementById("result").innerHTML = "";
+                _array.forEach((val) => {
+                    document.getElementById("result").innerHTML += val.toString().concat(" ");
+                });
+
+            });
+
+        });
+    </script>
+</body>
+
+</html>
