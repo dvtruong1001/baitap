@@ -3,9 +3,9 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%,-50%);  
-    background: rgb(226, 226, 237);
+    background: rgb(225, 225, 230);
     text-align: center;
-    width: 100%;
+    padding: 20px;
 }
 
 .container * {
